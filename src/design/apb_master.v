@@ -1,4 +1,4 @@
-module apb_master( HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIii
+module apb_master( 
                     input PCLK,PRESETn,transfer,READ_WRITE,
     input [8:0]apb_write_paddr,
     input [7:0]apb_write_data,
