@@ -33,10 +33,12 @@ always@(posedge PCLK or negedge PRESETN)
                                 PSEL = 'd1;
                                 PWRITE = (READ_WRITE)? 'd1 : 'd0;
                                 PADDR = (READ_WRITE)?apb_read_paddr:apb_write_paddr;
+                                if (READ_WRITE) PWDATA = apb_write_data;
                                 NS = ACCESS;
                             end
                 ACCESS  :    begin
                                 PENABLE = 'd1;
+                                if (!READ_WRITE) apb_read_data_out = PRDATA;
                                 NS = (PREADY)? (transfer)? SETUP : IDLE : ACCESS ;
                             end 
                 default :    NS = IDLE;
