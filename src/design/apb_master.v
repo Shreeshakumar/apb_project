@@ -31,13 +31,13 @@ always@(posedge PCLK or negedge PRESETN)
                             end
                 SETUP   :    begin
                                 PSEL = 'd1;
-                                PWRITE = 'd1;
-                                PADDR = apb_write_paddr;
+                                PWRITE = (READ_WRITE)? 'd1 : 'd0;
+                                PADDR = (READ_WRITE)?apb_read_paddr:apb_write_paddr;
                                 NS = ACCESS;
                             end
                 ACCESS  :    begin
                                 PENABLE = 'd1;
-                    NS = (PREADY)? (transfer)? SETUP : IDLE : ACCESS ;
+                                NS = (PREADY)? (transfer)? SETUP : IDLE : ACCESS ;
                             end 
                 default :    NS = IDLE;
             endcase
