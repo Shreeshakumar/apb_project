@@ -40,6 +40,7 @@ reg [2:0]CS,NS;
                                 NS = ACCESS;
                             end
                 ACCESS  :    begin
+                                MST_PRDATA = (PADDR[8])? SLV_PRDATA2 : SLV_PRDATA1;
                                 MST_PREADY = 'd1;
                                 NS = (transfer)? SETUP : IDLE ;
                             end 
