@@ -12,11 +12,11 @@ module apb_master(
                     input [7:0]PRDATA
 );
 
-localparam IDLE = 0;
-localparam SETUP = 1;
-localparam ACCESS = 2;
+localparam IDLE = 4;
+localparam SETUP = 2;
+localparam ACCESS = 1;
 
-reg [1:0]CS,NS;
+reg [2:0]CS,NS;
     
 always@(posedge PCLK or negedge PRESETN)
     begin    CS <=(!PRESETn)?IDLE:NS;    end
