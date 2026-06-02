@@ -21,7 +21,7 @@ reg [1:0]CS,NS;
 always@(posedge PCLK or negedge PRESETN)
     begin    CS <=(!PRESETn)?IDLE:NS;    end
 
-    always@(PCLK)
+  always@(*)
         begin
             case(CS)
                 IDLE    :    begin
