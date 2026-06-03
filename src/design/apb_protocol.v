@@ -1,7 +1,9 @@
+`default_nettype none
+
 module apb_protocol(
-    input PCLK,PRESETn,transfer,READ_WRITE,
-    input [7:0]apb_write_paddr,apb_write_data,apb_read_paddr,
-    output [7:0]apb_read_data_out
+    input wire PCLK,PRESETn,transfer,READ_WRITE,
+    input wire [7:0]apb_write_paddr,apb_write_data,apb_read_paddr,
+    output reg [7:0]apb_read_data_out
 );
 
 // wires of apb_master
