@@ -2,13 +2,16 @@
 
 module apb_protocol(
     input wire PCLK,PRESETn,transfer,READ_WRITE,
-    input wire [7:0]apb_write_paddr,apb_write_data,apb_read_paddr,
+    input wire [8:0]apb_write_paddr,
+    input wire [7:0]apb_write_data,
+    input wire [8:0]apb_read_paddr,
     output reg [7:0]apb_read_data_out
 );
 
 // wires of apb_master
 wire PENABLE,PWRITE;
-wire [7:0]PWDATA,PADDR;
+wire [7:0]PWDATA;
+wire [8:0]PADDR;
 wire PSEL;
 wire [7:0]PREADY,PRDATA;
 
