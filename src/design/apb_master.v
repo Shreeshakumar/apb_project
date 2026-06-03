@@ -1,15 +1,17 @@
+`default_nettype none
+
 module apb_master( 
-                    input PCLK,PRESETn,transfer,READ_WRITE,
-    input [8:0]apb_write_paddr,
-    input [7:0]apb_write_data,
-    input [8:0]apb_read_paddr,
-                    output [7:0]apb_read_data_out,
-                    output PENABLE,PWRITE,
-                    output [7:0]PWDATA,
-    output [8:0]PADDR,
-                    output PSEL,
-                    input PREADY,
-                    input [7:0]PRDATA
+                    input wire PCLK,PRESETn,transfer,READ_WRITE,
+                    input wire [8:0]apb_write_paddr,
+                    input wire [7:0]apb_write_data,
+                    input wire [8:0]apb_read_paddr,
+                    output reg [7:0]apb_read_data_out,
+                    output reg PENABLE,PWRITE,
+                    output reg [7:0]PWDATA,
+                    output reg [8:0]PADDR,
+                    output reg PSEL,
+                    input wire PREADY,
+                    input wire [7:0]PRDATA
 );
 
 localparam IDLE = 4;
