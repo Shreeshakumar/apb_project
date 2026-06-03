@@ -1,14 +1,15 @@
+`default_nettype none
 
-module apb_slave1(input PCLK,PRESETn,transfer,
+module apb_slave1(input wire PCLK,PRESETn,transfer,
                   
-                  input PENABLE,PWRITE,
-                  input [7:0]PWDATA,PADDR,
-                  input SLV_PSEL1,
+                  input wire PENABLE,PWRITE,
+                  input wire [7:0]PWDATA,PADDR,
+                  input wire SLV_PSEL1,
                   output reg SLV_PREADY1,
                   output reg [7:00]SLV_PRDATA1
 );
 
-    reg [7:0]mem[0:50];
+reg [7:0]mem[0:50];
 reg [2:0]CS,NS;
 
     always@(PCLK)
