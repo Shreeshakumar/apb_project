@@ -1,5 +1,5 @@
 
-module apb_slave1(input PCLK,PRESETn,transfer,
+module apb_slave2(input PCLK,PRESETn,transfer,
                   
                   input PENABLE,PWRITE,
                   input [7:0]PWDATA,PADDR,
