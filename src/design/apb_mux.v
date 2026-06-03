@@ -1,16 +1,17 @@
+`default_nettype none
 
-module apb_mux(input [8:0]PADDR,
-               input MST_PSEL,
-               output MST_PREADY,
-               output [7:0]MST_PRDATA,
+module apb_mux(input wire [8:0]PADDR,
+               input wire MST_PSEL,
+               output reg MST_PREADY,
+               output reg [7:0]MST_PRDATA,
                
-               output SLV_PSEL1,
-               input SLV_PREADY1,
-               input [7:0]SLV_PRDATA1,
+               output reg SLV_PSEL1,
+               input wire SLV_PREADY1,
+               input wire [7:0]SLV_PRDATA1,
 
-               output SLV_PSEL2,
-               input SLV_PREADY2,
-               input [7:0]SLV_PRDATA2
+               output reg SLV_PSEL2,
+               input wire SLV_PREADY2,
+               input wire [7:0]SLV_PRDATA2
 );
 
   always@(*)
